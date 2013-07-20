@@ -21,25 +21,25 @@ Setelah memasang *framework*, silakan buka dan lihat-lihat proyek untuk membiasa
 <a name="routing"></a>
 ## Routing
 
-To get started, let's create our first route. In Laravel, the simplest route is a route to a Closure. Pop open the `app/routes.php` file and add the following route to the bottom of the file:
+Untuk memulai, mari membuat route pertama kita. Di Laravel, route paling sederhana adalah route menuju Closure. Buka file `app/routes.php` dan tambahkan route berikut ini pada bagian bawah file:
 
 	Route::get('users', function()
 	{
 		return 'Users!';
 	});
 
-Now, if you hit the `/users` route in your web browser, you should see `Users!` displayed as the response. Great! You've just created your first route.
+Sekarang, jika anda menuju route `/users` pada web browser Anda, maka seharusnya Anda melihat `Users!` muncul sebagai respon. Hebat! Anda baru saja menciptakan route pertama.
 
-Routes can also be attached to controller classes. For example:
+Routes dapat juga dipasang pada kelas controller. Misal:
 
 	Route::get('users', 'UserController@getIndex');
 
-This route informs the framework that requests to the `/users` route should call the `getIndex` method on the `UserController` class. For more information on controller routing, check out the [controller documentation](/docs/controllers).
+Route ini menginformasikan bahwa framework akan meminta pada route `/users` untuk memanggil method `getIndex` pada kelas `UserController`. Informasi lebih lanjut mengenai routing controller, cek laman berikut ini [controller documentation](/docs/controllers).
 
 <a name="creating-a-view"></a>
 ## Creating A View
 
-Next, we'll create a simple view to display our user data. Views live in the `app/views` directory and contain the HTML of your application. We're going to place two new views in this directory: `layout.blade.php` and `users.blade.php`. First, let's create our `layout.blade.php` file:
+Selanjutnya, kita akan menciptakan view sederhana untuk menampilkan data user kita. Views terdapat pada direktori `app/views` dan menampung HTML aplikasi Anda. Kita akan menempatkan dua view baru pada direktori ini: `layout.blade.php` dan `users.blade.php`. Pertama, mari buat file `layout.blade.php` kita:
 
 	<html>
 		<body>
@@ -57,7 +57,7 @@ Next, we'll create our `users.blade.php` view:
 		Users!
 	@stop
 
-Some of this syntax probably looks quite strange to you. That's because we're using Laravel's templating system: Blade. Blade is very fast, because it is simply a handful of regular expressions that are run against your templates to compile them to pure PHP. Blade provides powerful functionality like template inheritance, as well as some syntax sugar on typical PHP control structures such as `if` and `for`. Check out the [Blade documentation](/docs/templates) for more details.
+Beberapa dari syntax ini mungkin terlihat cukup aneh untuk Anda. Itu karena kami menggunakan Blade, sistem templating Laravel. Blade membuat pengerjaan menjadi sangat cepat, karena sedikit dari regular expressions sederhana yang dijalankan berbeda dengan templates Anda yang langsung meng-compile nya menjadi pure PHP. Blade provides powerful functionality like template inheritance, as well as some syntax sugar on typical PHP control structures such as `if` and `for`. Check out the [Blade documentation](/docs/templates) for more details.
 
 Now that we have our views, let's return it from our `/users` route. Instead of returning `Users!` from the route, return the view instead:
 
